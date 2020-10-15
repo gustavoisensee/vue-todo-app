@@ -1,4 +1,9 @@
 # vue-todo-app
+This little project aims to create a todo list with some basic features:
+
+* Add todo
+* Mark todo as done!
+* Delete todo
 
 ## Project setup
 ```

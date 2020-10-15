@@ -1,4 +1,7 @@
 # vue-todo-app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03fabe52-e0c2-426b-89f2-e3b0c40b9a47/deploy-status)](https://app.netlify.com/sites/gus-vue-todo-app/deploys)
+
 This little project aims to create a todo list with some basic features:
 
 * Add todo

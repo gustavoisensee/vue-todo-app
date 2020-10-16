@@ -5,9 +5,9 @@
 <template>
   <div :class="$style.filter_container">
     <div>
-      <FilterComp filter="all" text="All" :filterBy="filterBy" />
-      <FilterComp filter="active" text="Active" :filterBy="filterBy" />
-      <FilterComp filter="completed" text="Completed" :filterBy="filterBy" />
+      <FilterComp filter="all" text="All" :filterBy="filterBy" :setFilterBy="setFilterBy" />
+      <FilterComp filter="active" text="Active" :filterBy="filterBy" :setFilterBy="setFilterBy" />
+      <FilterComp filter="completed" text="Completed" :filterBy="filterBy" :setFilterBy="setFilterBy" />
     </div>
     <span>{{total}} items</span>
   </div>
@@ -23,7 +23,8 @@
     },
     props: {
       total: Number,
-      filterBy: String
+      filterBy: String,
+      setFilterBy: Function
     }
   }
 </script>

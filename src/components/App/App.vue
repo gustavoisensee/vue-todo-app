@@ -22,9 +22,11 @@
         <FiltersContainer
           :total="filteredTodos.length"
           :filterBy="filterBy"
+          :setFilterBy="setFilterBy"
         />
         <List
-          :filteredTodos="filteredTodos" :deleteTodo="deleteTodo"
+          :filteredTodos="filteredTodos"
+          :deleteTodo="deleteTodo"
           :toggleTodo="toggleTodo"
         />
       </div>
@@ -58,6 +60,9 @@
     methods: {
       deleteTodo,
       toggleTodo,
+      setFilterBy: function(filter) {
+        this.filterBy = filter;
+      },
       handleSubmit
     },
     computed: {

@@ -10,7 +10,7 @@ This little project aims to create a todo list with some basic features:
 
 [Demo](https://gus-vue-todo-app.netlify.app/)
 
-![Vue Todo App](https://raw.githubusercontent.com/gustavoisensee/vue-todo-app/main/public/screenshot.png)
+![Vue Todo App](https://github.com/gustavoisensee/vue-todo-app/raw/main/public/screenshot.png)
 
 ## Project setup
 ```

@@ -11,7 +11,6 @@ export function filterTodos() {
   }
 }
 
-
 export function getTodos() {
   this.todos = storage.get('todos') || [];
 
@@ -35,11 +34,10 @@ export function toggleTodo() {
 }
 
 export function handleSubmit() {
-  const newProduct = {
+  this.todos.unshift({
     id: uuid(),
     name: this.input,
-  };
-  this.todos.unshift(newProduct);
+  });
 
   storage.save('todos', this.todos);
   this.input = '';

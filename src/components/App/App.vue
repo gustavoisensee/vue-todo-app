@@ -4,7 +4,7 @@
 
 <template>
   <div :class="$style.app">
-    <HelloWorld msg="Welcome to my first Vue.js App"/>
+    <Header msg="Welcome to my first Vue.js App"/>
 
     <div>
       <form @submit.prevent="handleSubmit">
@@ -21,7 +21,7 @@
       <div v-if="!loading && filteredTodos.length > 0">
         <FiltersContainer
           :total="filteredTodos.length"
-          :filterBy="filterBy" :filterTodo="filterTodo"
+          :filterBy="filterBy"
         />
         <List
           :filteredTodos="filteredTodos" :deleteTodo="deleteTodo"
@@ -33,16 +33,16 @@
 </template>
 
 <script>
-  import HelloWorld from '../HelloWorld';
+  import Header from '../Header';
   import FiltersContainer from '../FiltersContainer';
   import List from '../List';
 
-  import { getTodos, deleteTodo, toggleTodo, filterTodo, handleSubmit } from './App.actions'
+  import { getTodos, deleteTodo, toggleTodo, filterTodos, handleSubmit } from './App.actions'
 
   export default {
     name: 'App',
     components: {
-      HelloWorld,
+      Header,
       FiltersContainer,
       List
     },
@@ -50,18 +50,18 @@
       loading: true,
       input: '',
       todos: [],
-      filteredTodos: [],
       filterBy: 'all'
     }),
     created() {
-      this.getTodos();
+      getTodos();
     },
     methods: {
-      getTodos,
       deleteTodo,
       toggleTodo,
-      filterTodo,
       handleSubmit
+    },
+    computed: {
+      filteredTodos: filterTodos
     }
   }
 </script>

@@ -5,7 +5,7 @@
 <template>
   <button
     :class="[$style.filter, filterBy === filter && $style.filter_active]"
-    @click="filterTodo(filter)"
+    @click="filterBy=filter"
   >{{text}}</button>
 </template>
 
@@ -15,12 +15,7 @@
     props: {
       filterBy: String,
       filter: String,
-      text: String,
-      filterTodo: Function
+      text: String
     }
   }
 </script>
-
-<style>
-
-</style>

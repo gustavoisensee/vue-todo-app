@@ -8,29 +8,25 @@
 
     <div>
       <form @submit.prevent="handleSubmit">
-        <input type='text' :class="$style.input" v-model="input" placeholder="Type your new todo" />
+        <input
+          type='text' :class="$style.input"
+          v-model="input" placeholder="Type your new todo"
+        />
       </form>
       <span v-if="loading">Loading...</span>
-      <span v-if="!loading && filteredTodos.length === 0">There's no todo added so far!</span>
+      <span v-if="!loading && filteredTodos.length === 0">
+        There's no todo added so far!
+      </span>
 
       <div v-if="!loading && filteredTodos.length > 0">
-        <div :class="$style.filter_container">
-          <div>
-            <button :class="[filterBy === 'all' && $style.filter_active, $style.filter]" @click="filterTodo('all')">All</button>
-            <button :class="[filterBy === 'active' && $style.filter_active, $style.filter]" @click="filterTodo('active')">Active</button>
-            <button :class="[filterBy === 'completed' && $style.filter_active, $style.filter]" @click="filterTodo('completed')">Completed</button>
-          </div>
-          <span>{{filteredTodos.length}} items</span>
-        </div>
-        <ul>
-          <li v-for="todo in filteredTodos" :key="todo.text" :class="$style.list_item">
-            <div :class="$style.checkbox_container">
-              <input type="checkbox" :id="todo.id" v-model="todo.checked" @click="toggleTodo(todo)">
-              <label :for="todo.id" :class="[todo.checked && $style.completed]">{{ todo.name }}</label>
-            </div>
-            <button @click="deleteTodo(todo)" :class="$style.delete_button" />
-          </li>
-        </ul>
+        <FiltersContainer
+          :total="filteredTodos.length"
+          :filterBy="filterBy" :filterTodo="filterTodo"
+        />
+        <List
+          :filteredTodos="filteredTodos" :deleteTodo="deleteTodo"
+          :toggleTodo="toggleTodo"
+        />
       </div>
     </div>
   </div>
@@ -38,12 +34,17 @@
 
 <script>
   import HelloWorld from '../HelloWorld';
+  import FiltersContainer from '../FiltersContainer';
+  import List from '../List';
+
   import { getTodos, deleteTodo, toggleTodo, filterTodo, handleSubmit } from './App.actions'
 
   export default {
     name: 'App',
     components: {
-      HelloWorld
+      HelloWorld,
+      FiltersContainer,
+      List
     },
     data: () => ({
       loading: true,

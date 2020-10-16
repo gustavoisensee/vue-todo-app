@@ -1,0 +1,18 @@
+
+.filter {
+  background-color: #ffffff;
+  border: 1px solid #2f2f2f;
+  color: #2f2f2f;
+  padding: 8px;
+  outline: none;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.filter_active {
+  background-color: #5be05b;
+  border: 1px solid #5be05b;
+}

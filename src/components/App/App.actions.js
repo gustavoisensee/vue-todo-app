@@ -1,9 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import storage from '../../helpers/storage';
 
-
 export function filterTodo(filter) {
-  console.log(filter);
   this.filterBy = filter;
   if (filter === 'all') {
     this.filteredTodos = [...this.todos];
@@ -43,10 +41,9 @@ export function handleSubmit() {
     id: uuid(),
     name: this.input,
   };
+  this.todos.unshift(newProduct);
 
   storage.save('todos', this.todos);
-
-  this.todos.unshift(newProduct);
-  this.input = '';
   filterTodo.call(this, this.filterBy);
+  this.input = '';
 }

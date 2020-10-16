@@ -53,7 +53,7 @@
       filterBy: 'all'
     }),
     created() {
-      getTodos();
+      getTodos.call(this);
     },
     methods: {
       deleteTodo,

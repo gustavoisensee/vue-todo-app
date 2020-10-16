@@ -8,6 +8,10 @@ This little project aims to create a todo list with some basic features:
 * Mark todo as done!
 * Delete todo
 
+[Demo](https://gus-vue-todo-app.netlify.app/)
+
+![Vue Todo App](https://raw.githubusercontent.com/gustavoisensee/vue-todo-app/main/public/screenshot.png)
+
 ## Project setup
 ```
 yarn install

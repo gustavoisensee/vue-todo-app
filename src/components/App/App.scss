@@ -23,14 +23,19 @@ ul {
 }
 
 .delete_button {
-  background-color: #ff3737;
-  border: 0;
-  padding: 8px;
-  border-radius: 4px;
-  color: #ffffff;
-  font-weight: 800;
-  cursor: pointer;
-  outline: none;
+    background-color: #ff5555;
+    border: 0;
+    border-radius: 25px;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    background-image: url('../../assets/delete.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .delete_button:active {
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
@@ -79,3 +84,26 @@ ul {
   }
 }
 
+.filter_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.filter {
+  background-color: #ffffff;
+  border: 1px solid #2f2f2f;
+  color: #2f2f2f;
+  padding: 8px;
+  outline: none;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.filter_active {
+  background-color: #5be05b;
+  border: 1px solid #5be05b;
+}

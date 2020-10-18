@@ -43,3 +43,13 @@
 .delete_button:active {
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
 }
+
+.list_active {
+  transition: opacity 300ms;
+}
+.list_enter {
+  opacity: 0;
+}
+.list_move {
+  transition: transform 300ms;
+}

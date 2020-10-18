@@ -39,3 +39,10 @@ ul {
   outline: none;
   font-size: 14px;
 }
+
+.fade_active {
+  transition: opacity 500ms;
+}
+.fade_enter {
+  opacity: 0;
+}

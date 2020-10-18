@@ -18,18 +18,26 @@
         There's no todo added so far!
       </span>
 
-      <div v-if="!loading && filteredTodos.length > 0">
-        <FiltersContainer
-          :total="filteredTodos.length"
-          :filterBy="filterBy"
-          :setFilterBy="setFilterBy"
-        />
-        <List
-          :filteredTodos="filteredTodos"
-          :deleteTodo="deleteTodo"
-          :toggleTodo="toggleTodo"
-        />
-      </div>
+      <transition
+        name="fade"
+        :enter-class="$style.fade_enter"
+        :leave-to-class="$style.fade_enter"
+        :enter-active-class="$style.fade_active"
+        :leave-active-class="$style.fade_active"
+      >
+        <div v-if="!loading && filteredTodos.length > 0">
+          <FiltersContainer
+            :total="filteredTodos.length"
+            :filterBy="filterBy"
+            :setFilterBy="setFilterBy"
+          />
+          <List
+            :filteredTodos="filteredTodos"
+            :deleteTodo="deleteTodo"
+            :toggleTodo="toggleTodo"
+          />
+        </div>
+      </transition>
     </div>
   </div>
 </template>

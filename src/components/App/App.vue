@@ -34,7 +34,6 @@
           <List
             :filteredTodos="filteredTodos"
             :deleteTodo="deleteTodo"
-            :toggleTodo="toggleTodo"
           />
         </div>
       </transition>
@@ -46,8 +45,9 @@
   import Header from '../Header';
   import FiltersContainer from '../FiltersContainer';
   import List from '../List';
+  import storage from '../../helpers/storage';
 
-  import { getTodos, deleteTodo, toggleTodo, filterTodos, handleSubmit } from './App.actions'
+  import { getTodos, deleteTodo, filterTodos, handleSubmit } from './App.actions'
 
   export default {
     name: 'App',
@@ -67,7 +67,6 @@
     },
     methods: {
       deleteTodo,
-      toggleTodo,
       setFilterBy: function(filter) {
         this.filterBy = filter;
       },
@@ -75,6 +74,14 @@
     },
     computed: {
       filteredTodos: filterTodos
+    },
+    watch: {
+      todos: {
+        deep: true,
+        handler(val) {
+          storage.save('todos', val);
+        }
+      }
     }
   }
 </script>

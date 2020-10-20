@@ -13,9 +13,21 @@
     tag='ul'
   >
     <li v-for="todo in filteredTodos" :key="todo.id" :class="[$style.list_item]">
-      <div :class="$style.checkbox_container">
-        <input type="checkbox" :id="todo.id" v-model="todo.checked" @click="toggleTodo(todo)">
-        <label :for="todo.id" :class="[todo.checked && $style.completed]">{{ todo.name }}</label>
+      <div :class="$style.checkbox_container" v-show="!todo.edit" @dblclick="todo.edit=true">
+        <input type="checkbox" :id="todo.id" v-model="todo.checked">
+        <label :for="todo.id" :class="[todo.checked && $style.completed]">
+          {{ todo.name }}
+        </label>
+      </div>
+      <div :class="$style.checkbox_container" v-show="todo.edit">
+        <form @submit.prevent="todo.edit=false" :class="$style.form_input">
+          <input
+            type="input"
+            :id="todo.id + '-todo'"
+            :class="$style.input"
+            v-model.lazy="todo.name" @blur="todo.edit=false"
+          />
+        </form>
       </div>
       <button @click="deleteTodo(todo)" :class="$style.delete_button" />
     </li>
@@ -27,8 +39,7 @@
     name: 'List',
     props: {
       filteredTodos: Array,
-      deleteTodo: Function,
-      toggleTodo: Function
+      deleteTodo: Function
     }
   }
 </script>

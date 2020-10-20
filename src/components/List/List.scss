@@ -11,6 +11,7 @@
 .checkbox_container {
   display: flex;
   align-items: center;
+  flex: 1;
 
   & label {
     padding-left: 16px;
@@ -52,4 +53,18 @@
 }
 .list_move {
   transition: transform 300ms;
+}
+
+.form_input {
+  display: flex;
+  flex: 1;
+}
+
+.input {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  margin-right: 16px;
+  outline: none;
 }

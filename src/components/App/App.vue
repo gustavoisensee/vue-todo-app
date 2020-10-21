@@ -14,7 +14,7 @@
         />
       </form>
       <span v-if="loading">Loading...</span>
-      <span v-if="!loading && filteredTodos.length === 0">
+      <span v-if="!loading && todos.length === 0">
         There's no todo added so far!
       </span>
 
@@ -25,16 +25,23 @@
         :enter-active-class="$style.fade_active"
         :leave-active-class="$style.fade_active"
       >
-        <div v-if="!loading && filteredTodos.length > 0">
-          <FiltersContainer
-            :total="filteredTodos.length"
-            :filterBy="filterBy"
-            :setFilterBy="setFilterBy"
-          />
-          <List
-            :filteredTodos="filteredTodos"
-            :deleteTodo="deleteTodo"
-          />
+        <div>
+          <div v-if="todos.length > 0">
+            <FiltersContainer
+              :total="filteredTodos.length"
+              :filterBy="filterBy"
+              :setFilterBy="setFilterBy"
+            />
+          </div>
+          <div v-if="!loading && todos.length > 0 && filteredTodos.length === 0">
+            <span>There's no todos for the filters applied</span>
+          </div>
+          <div v-if="!loading && filteredTodos.length > 0">
+            <List
+              :filteredTodos="filteredTodos"
+              :deleteTodo="deleteTodo"
+            />
+          </div>
         </div>
       </transition>
     </div>

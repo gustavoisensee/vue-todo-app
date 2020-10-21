@@ -26,7 +26,7 @@
         :leave-active-class="$style.fade_active"
       >
         <div>
-          <div v-if="todos.length > 0">
+          <div v-if="!loading && todos.length > 0">
             <FiltersContainer
               :total="filteredTodos.length"
               :filterBy="filterBy"

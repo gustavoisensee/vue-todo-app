@@ -4,7 +4,11 @@
       <router-link to="/" exact>Home</router-link>
       <router-link to="/about">About</router-link>
     </div>
-    <transition>
+    <transition
+      name="fade"
+      enter-class="fade_enter"
+      enter-active-class="fade_active"
+    >
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -16,6 +20,7 @@
   html, body {
     display: flex;
     justify-content: center;
+    width: calc(100% - 16px);
     height: 100%;
     margin: 0;
     border: 0;
@@ -32,7 +37,8 @@
 
 <style scoped lang="scss">
   .main {
-    max-width: 600px;
+    max-width: 550px;
+    width: 100%;
   }
 
   .links {
@@ -51,5 +57,12 @@
         border-color: grey;
       }
     }
+  }
+
+  .fade_active {
+    transition: opacity 600ms;
+  }
+  .fade_enter {
+    opacity: 0;
   }
 </style>

@@ -1,15 +1,11 @@
-<style module lang="scss">
-  @import './App.scss';
-</style>
-
 <template>
-  <div :class="$style.app">
+  <div class="app">
     <Header msg="Welcome to my first Vue.js App"/>
 
     <div>
       <form @submit.prevent="handleSubmit(input);input='';">
         <input
-          type='text' :class="$style.input"
+          type='text' class="input"
           v-model="input" placeholder="Type your new todo"
         />
       </form>
@@ -20,10 +16,10 @@
 
       <transition
         name="fade"
-        :enter-class="$style.fade_enter"
-        :leave-to-class="$style.fade_enter"
-        :enter-active-class="$style.fade_active"
-        :leave-active-class="$style.fade_active"
+        enter-class="fade_enter"
+        leave-to-class="fade_enter"
+        enter-active-class="fade_active"
+        leave-active-class="fade_active"
       >
         <div>
           <div v-if="!loading && todos.length > 0">
@@ -85,3 +81,39 @@
     }
   }
 </script>
+
+<style scoped>
+  .app {
+    display: flex;
+    flex-direction: column;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  .image {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+
+  .input {
+    padding: 16px;
+    width: calc(100% - 32px);
+    margin: 0;
+    border: 1px solid #f1f1f1;
+    margin-bottom: 16px;
+    border-bottom: 2px solid grey;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .fade_active {
+    transition: opacity 500ms;
+  }
+  .fade_enter {
+    opacity: 0;
+  }
+</style>

@@ -12,6 +12,24 @@
   </div>
 </template>
 
+<style>
+  html, body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    padding: 8px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
 <style scoped lang="scss">
   .main {
     max-width: 600px;

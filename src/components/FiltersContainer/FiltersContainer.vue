@@ -1,9 +1,5 @@
-<style module lang="scss">
-  @import './FiltersContainer.scss';
-</style>
-
 <template>
-  <div :class="$style.filter_container">
+  <div class="filter_container">
     <div>
       <FilterComp filter="all" text="All" />
       <FilterComp filter="active" text="Active" />
@@ -27,3 +23,13 @@
     }
   }
 </script>
+
+<style scoped>
+  .filter_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    margin-bottom: 8px;
+  }
+</style>

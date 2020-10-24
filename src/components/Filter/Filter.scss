@@ -1,8 +1,8 @@
 
 .filter {
   background-color: #ffffff;
-  border: 1px solid #2f2f2f;
-  color: #2f2f2f;
+  border: 1px solid #c3c3c3;
+  color: #424242;
   padding: 8px;
   outline: none;
   margin-right: 8px;
@@ -10,6 +10,7 @@
   font-weight: 600;
   transition: all 200ms;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .filter_active {

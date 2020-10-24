@@ -5,18 +5,24 @@
 <template>
   <button
     :class="[$style.filter, filterBy === filter && $style.filter_active]"
-    @click="setFilterBy(filter)"
+    @click="setFilter(filter)"
   >{{text}}</button>
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
+
   export default {
     name: 'FilterComp',
+    computed: {
+      filterBy: function() {
+        return this.$store.state.filterBy;
+      }
+    },
+    methods: mapMutations(['setFilter']),
     props: {
-      filterBy: String,
       filter: String,
-      text: String,
-      setFilterBy: Function
+      text: String
     }
   }
 </script>

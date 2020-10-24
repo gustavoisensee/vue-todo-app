@@ -7,7 +7,7 @@
     <Header msg="Welcome to my first Vue.js App"/>
 
     <div>
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="handleSubmit(input);input='';">
         <input
           type='text' :class="$style.input"
           v-model="input" placeholder="Type your new todo"
@@ -27,20 +27,13 @@
       >
         <div>
           <div v-if="!loading && todos.length > 0">
-            <FiltersContainer
-              :total="filteredTodos.length"
-              :filterBy="filterBy"
-              :setFilterBy="setFilterBy"
-            />
+            <FiltersContainer />
           </div>
           <div v-if="!loading && todos.length > 0 && filteredTodos.length === 0">
             <span>There's no todos for the filters applied</span>
           </div>
           <div v-if="!loading && filteredTodos.length > 0">
-            <List
-              :filteredTodos="filteredTodos"
-              :deleteTodo="deleteTodo"
-            />
+            <List />
           </div>
         </div>
       </transition>
@@ -49,12 +42,12 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
   import Header from '../Header';
   import FiltersContainer from '../FiltersContainer';
   import List from '../List';
   import storage from '../../helpers/storage';
-
-  import { getTodos, deleteTodo, filterTodos, handleSubmit } from './App.actions'
+  import { todos, filteredTodos } from '../../computed/todos';
 
   export default {
     name: 'App',
@@ -65,28 +58,28 @@
     },
     data: () => ({
       loading: true,
-      input: '',
-      todos: [],
-      filterBy: 'all'
+      input: ''
     }),
     created() {
-      getTodos.call(this);
+      this.getTodos();
+
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     },
-    methods: {
-      deleteTodo,
-      setFilterBy: function(filter) {
-        this.filterBy = filter;
-      },
-      handleSubmit
-    },
+    methods: mapMutations([
+      'getTodos',
+      'handleSubmit',
+    ]),
     computed: {
-      filteredTodos: filterTodos
+      todos,
+      filteredTodos
     },
     watch: {
       todos: {
         deep: true,
-        handler(val) {
-          storage.save('todos', val);
+        handler: function(newTodos) {
+          storage.save('todos', newTodos);
         }
       }
     }

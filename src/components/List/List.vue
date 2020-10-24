@@ -35,11 +35,16 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
+  import { filteredTodos } from '../../computed/todos';
+
   export default {
     name: 'List',
-    props: {
-      filteredTodos: Array,
-      deleteTodo: Function
+    methods: mapMutations([
+      'deleteTodo'
+    ]),
+    computed: {
+      filteredTodos
     }
   }
 </script>

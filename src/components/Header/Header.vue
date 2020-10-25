@@ -28,6 +28,12 @@
     }
   }
 
+  @media (max-width: 450px) {
+    .header {
+      font-size: 24px;
+    }
+  }
+
   @media (max-width: 400px) {
     .header {
       font-size: 22px;

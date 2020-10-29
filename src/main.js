@@ -1,16 +1,12 @@
 import 'es6-promise/auto';
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createApp } from 'vue';
 import store from './store';
 import router from './router';
 import Main from './components/Main';
 
-Vue.config.productionTip = false;
+//  Vue.config.productionTip = false;
 
-Vue.use(VueRouter);
-
-new Vue({
-  render: h => h(Main),
-  router,
-  store
-}).$mount('#app');
+createApp(Main)
+  .use(store)
+  .use(router)
+  .mount('#app');

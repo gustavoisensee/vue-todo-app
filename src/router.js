@@ -1,13 +1,18 @@
-import VueRouter from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import App from './components/App';
 
-const About = () => import('./components/About');
-
 const routes = [
-  { path: '/', component: App },
-  { path: '/about', component: About }
-]
+  { path: '/', name: 'Home', component: App },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('./components/About')
+  }
+];
 
-export default new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
 });
+
+export default router;

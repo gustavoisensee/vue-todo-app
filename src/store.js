@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 import {
-  getTodos, setFilter, handleSubmit, deleteTodo
+  getTodos,
+  setFilter,
+  handleSubmit,
+  deleteTodo
 } from './mutations/todos';
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
+const store = createStore({
   state: {
     filterBy: 'all',
     todos: []
@@ -16,7 +16,9 @@ const store = new Vuex.Store({
     setFilter,
     handleSubmit,
     deleteTodo
-  }
+  },
+  actions: {},
+  modules: {}
 });
 
 export default store;

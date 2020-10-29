@@ -1,5 +1,5 @@
 export default {
-  get: (key) => {
+  get: key => {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
   },

@@ -30,7 +30,9 @@
           />
         </form>
       </div>
-      <button @click="deleteTodo(todo)" class="delete_button" />
+      <button @click="deleteTodo(todo)" class="delete_button">
+        <img src="../../assets/delete.svg" class="delete_button_icon" />
+      </button>
     </li>
   </transition-group>
 </template>
@@ -79,17 +81,13 @@ export default {
 
 .delete_button {
   background-color: #ff5555;
-  border: 0;
+  border: 1px;
   border-radius: 25px;
   color: #ffffff;
   cursor: pointer;
   outline: none;
-  background-image: url('../../assets/delete.png');
-  background-repeat: no-repeat;
-  background-size: 18px;
-  background-position: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 
   &:active {
@@ -97,12 +95,19 @@ export default {
   }
 }
 
+.delete_button_icon {
+  width: 16px;
+  height: 16px;
+}
+
 .list_active {
   transition: opacity 300ms;
 }
+
 .list_enter {
   opacity: 0;
 }
+
 .list_move {
   transition: transform 300ms;
 }

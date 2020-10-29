@@ -33,6 +33,12 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
+#app {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

@@ -77,6 +77,9 @@
   }
 
   .delete_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #ff5555;
     border: 1px;
     border-radius: 25px;

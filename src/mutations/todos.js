@@ -6,7 +6,6 @@ export function setFilter(state, payload) {
 }
 
 export function getTodos(state) {
-  console.log('asd')
   state.todos = storage.get('todos') || [];
 }
 
